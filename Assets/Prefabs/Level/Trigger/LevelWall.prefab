@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2835013257404631973}
   - component: {fileID: 5110366512192193382}
   - component: {fileID: 289971304255967038}
+  - component: {fileID: -7261300405806790363}
   m_Layer: 0
   m_Name: LevelWall
   m_TagString: Untagged
@@ -110,3 +111,19 @@ PolygonCollider2D:
       - {x: 0.58778536, y: -0.80901694}
       - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 0
+--- !u!114 &-7261300405806790363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479509773588466633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776161da2fda9764288d34939d9aa397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallType: 0
+  NormalVector: {x: 0, y: 0}
+  bounceFactor: 1
+  stage: 0
