@@ -16,7 +16,7 @@ public class ComposeController : Singleton<ComposeController>
     [SerializeField] private LineRenderer lineRenderer;
 
     [SerializeField] private GeneratedBubble bubblePrefab;
-    [SerializeField] private BubbleShip bubbleShipPrefab;
+    [SerializeField] private BubbleShip bubbleShip;
     [SerializeField, ReadOnly] private GeneratedBubble currentInitingBubble; 
     public LiquidBottle currentTouchingLiquidBottle;
     
@@ -89,5 +89,10 @@ public class ComposeController : Singleton<ComposeController>
     {
         currentInitingBubble.Release();
         currentInitingBubble = null;
+    }
+
+    public void StartActualMove()
+    {
+        bubbleShip.StartActualMove();
     }
 }
