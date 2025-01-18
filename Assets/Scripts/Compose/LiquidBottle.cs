@@ -9,10 +9,12 @@ public class LiquidBottle : MonoBehaviour
     [SerializeField] private float maxLiquidVolume;
 
     [SerializeField, ReadOnly] private float _currentLiquidVolume;
+    [SerializeField] private Transform liquidParent;
 
     private void Awake()
     {
         _currentLiquidVolume = maxLiquidVolume;
+        liquidParent.localScale = new Vector3(1, _currentLiquidVolume / maxLiquidVolume, 1);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,6 +40,7 @@ public class LiquidBottle : MonoBehaviour
     public void ResetBottle()
     {
         _currentLiquidVolume = maxLiquidVolume;
+        liquidParent.localScale = new Vector3(1, _currentLiquidVolume / maxLiquidVolume, 1);
     }
 
     public void Read((BubbleData, float) setLiquidBottle)
