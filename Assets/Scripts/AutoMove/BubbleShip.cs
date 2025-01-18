@@ -125,7 +125,6 @@ public class BubbleShip : MonoBehaviour
         _rigidbody.totalTorque = 0;
     }
 
-
     public void ResetShip()
     {
         for (int i = 0; i < components.Count; i++)

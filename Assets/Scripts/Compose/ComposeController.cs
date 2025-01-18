@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.Serialization;
 using UnityEngine;
 
@@ -21,6 +22,11 @@ public class ComposeController : Singleton<ComposeController>
     [SerializeField] private Transform bubbleOrigin;
 
     [OdinSerialize] private List<List<(BubbleData data, float size)>> _bubbles;
+
+    [SerializeField] private Camera fixedCamera;
+    [SerializeField] private Camera fixedSmallCamera;
+    [SerializeField] private Camera fixedBigCamera;
+    private bool _cameraZoomed;
 
     private void Start()
     {
@@ -45,6 +51,27 @@ public class ComposeController : Singleton<ComposeController>
         if(Input.GetKeyDown(KeyCode.R))
         {
             ResetGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CameraZoom();
+        }
+    }
+
+    private void CameraZoom()
+    {
+        if (!_cameraZoomed)
+        {
+            fixedCamera.DOOrthoSize(fixedBigCamera.orthographicSize, 1f);
+            fixedCamera.transform.DOMove(fixedBigCamera.transform.position, 1f);
+            _cameraZoomed = true;
+        }
+        else
+        {
+            fixedCamera.DOOrthoSize(fixedSmallCamera.orthographicSize, 1f);
+            fixedCamera.transform.DOMove(fixedSmallCamera.transform.position, 1f);
+            _cameraZoomed = false;
         }
     }
 
