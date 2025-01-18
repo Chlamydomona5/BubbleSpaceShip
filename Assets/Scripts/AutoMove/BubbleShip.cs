@@ -121,7 +121,8 @@ public class BubbleShip : MonoBehaviour
     {
         for (int i = 0; i < components.Count; i++)
         {
-            Destroy(components[i]?.gameObject);
+            if(components[i] && components[i].gameObject)
+                Destroy(components[i].gameObject);
         }
         components.Clear();
     }
