@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class GeneratedBubble : ComposeBubbleBase
 {
+    [SerializeField] private BubbleData data;
     [SerializeField, ReadOnly] private float size;
     [SerializeField] private Vector2 releaseForce;
+    
+    public void Init(BubbleData data)
+    {
+        this.data = data;
+    }
     
     public void Blow(float delta)
     {
@@ -29,5 +35,10 @@ public class GeneratedBubble : ComposeBubbleBase
                 bubbleShip.ReceiveBubble(this);
             }
         }
+    }
+    
+    public void Explode()
+    {
+        bubbleShip.ExplodeBubbleAt(transform.position);
     }
 }

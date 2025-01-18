@@ -17,7 +17,8 @@ public class LevelWallBase : MonoBehaviour
         {
             return;
         }
-        BubbleShip bs = collision.gameObject.GetComponentInParent<BubbleShip>();
+
+        BubbleShip bs = collision.collider.GetComponentInParent<BubbleShip>();
         Rigidbody2D rb = bs.GetComponent<Rigidbody2D>();
         if(bs != null)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
+using DG.Tweening;
 using UnityEngine;
 
 public class BubbleShip : MonoBehaviour
@@ -33,7 +34,12 @@ public class BubbleShip : MonoBehaviour
     
     public void AddForceToShip(Vector2 force)
     {
-        
+        _rigidbody.AddForce(force);
+    }
+    
+    public void RotateShip()
+    {
+        _rigidbody.DORotate(90, 1f).SetEase(Ease.Linear);
     }
 
     public void ReceiveBubble(ComposeBubbleBase newBubble)
@@ -67,10 +73,23 @@ public class BubbleShip : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!onMove)
+        if (!onMove)
             onMouseControl = true;
+        else
+        {
+            //Judge which component this click is on
+            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var hit = Physics2D.Raycast(pos, Vector2.up, .1f, LayerMask.NameToLayer("Bubble"));
+            //Draw Ray
+            Debug.DrawRay(pos, Vector2.up, Color.red, 1f);
+            if (hit.collider != null)
+            {
+                var bubble = hit.collider.GetComponent<GeneratedBubble>();
+                bubble.Explode();
+            }
+        }
     }
-    
+
     private void OnMouseUp()
     {
         if(!onMove)
@@ -81,4 +100,6 @@ public class BubbleShip : MonoBehaviour
     {
         onMove = true;
     }
+
+
 }
