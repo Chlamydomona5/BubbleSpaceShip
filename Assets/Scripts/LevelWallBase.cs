@@ -10,21 +10,23 @@ public class LevelWallBase : MonoBehaviour
     public float bounceFactor = 1f;
     public int stage;
     private bool disabled = false;
-
+    public bool disableRender = true;
     private void Awake()
     {
+        if(disableRender)
         GetComponent<SpriteRenderer>().enabled = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.gameObject.layer != LayerMask.NameToLayer("Bubble"))
+
+        if (collision.collider.gameObject.layer != LayerMask.NameToLayer("Bubble"))
         {
             return;
         }
 
         BubbleShip bs = collision.collider.GetComponentInParent<BubbleShip>();
         Rigidbody2D rb = bs.GetComponent<Rigidbody2D>();
-        if(bs != null)
+        if (bs == null|| rb == null)
         {
             Debug.LogError("111");
         }
@@ -32,26 +34,35 @@ public class LevelWallBase : MonoBehaviour
 
         if (wallType == WallType.normal || wallType == WallType.bounce)
         {
-            // 遍历所有碰撞点（即使只有一个碰撞点，也能正确处理）
-            foreach (ContactPoint2D contact in collision.contacts)
+            GeneratedBubble gb = collision.collider.gameObject.GetComponent<GeneratedBubble>();
+            if (gb.Data.ExplodeEffect is FrictionEffect)
             {
-                Vector2 normal = -contact.normal;
-                normal = FindClosestDirection(normal);
-                // 根据法向量朝向改变物体的速度朝向
-                normal = Vector2.Reflect(bs.previousVelocity  , normal)*(1f/Time.fixedDeltaTime);
-                bs.AddForceToShip(normal);
-                Debug.Log("ADD FORCE " + normal);
+
+            }
+            else
+            {
+                // 遍历所有碰撞点（即使只有一个碰撞点，也能正确处理）
+                foreach (ContactPoint2D contact in collision.contacts)
+                {
+                    Vector2 normal = -contact.normal;
+                    normal = FindClosestDirection(normal);
+                    // 根据法向量朝向改变物体的速度朝向
+                    normal = Vector2.Reflect(bs.previousVelocity, normal) * (1f / Time.fixedDeltaTime);
+                    bs.AddForceToShip(normal);
+                    Debug.Log("ADD FORCE " + normal);
+                }
             }
         }
-        else if(wallType == WallType.spike)
+        else if (wallType == WallType.spike)
         {
             //todo: 戳爆最靠近的气泡,
             collision.collider.gameObject.GetComponent<GeneratedBubble>().Explode(true);
         }
-        else if (wallType == WallType.checkPoint) 
+        else if (wallType == WallType.checkPoint)
         {
-            Destroy(gameObject);
+            GameManager.Instance.LoadNextLevel();
         }
+
     }
     public static Vector2 FindClosestDirection(Vector2 inputNormal)
     {
