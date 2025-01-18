@@ -16,12 +16,12 @@ public class ComposeController : Singleton<ComposeController>
 
     [SerializeField] private List<GameObject> hideOnStart;
     [SerializeField] private List<GameObject> showOnStart;
-    
+
     [SerializeField] private List<ComposeBubbleBase> allBubbles;
     [SerializeField] private Transform shipOrigin;
     [SerializeField] private Transform bubbleOrigin;
 
-    [OdinSerialize] private List<List<(BubbleData data, float size)>> _bubbles;
+    [OdinSerialize] private List<(BubbleData data, float size)> _bubbles;
 
     [SerializeField] private Camera fixedCamera;
     [SerializeField] private Camera fixedSmallCamera;
@@ -47,8 +47,8 @@ public class ComposeController : Singleton<ComposeController>
         // Adjust Line
         lineRenderer.SetPosition(0, crab.transform.position);
         lineRenderer.SetPosition(1, craw.transform.position);
-        
-        if(Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
             ResetGame();
         }
@@ -77,9 +77,13 @@ public class ComposeController : Singleton<ComposeController>
 
     public void StartActualMove()
     {
-        bubbleShip.ActualMove(true);
-        hideOnStart.ForEach(go => go.SetActive(false));
-        showOnStart.ForEach(go => go.SetActive(true));
+        crab.transform.DOJump(bubbleShip.transform.position, 1f, 1, 1f).OnComplete((() =>
+        {
+            bubbleShip.ActualMove(true);
+            hideOnStart.ForEach(go => go.SetActive(false));
+            showOnStart.ForEach(go => go.SetActive(true));
+            crab.transform.SetParent(bubbleShip.transform);
+        }));
     }
 
     public void ResetCompose()
@@ -87,9 +91,10 @@ public class ComposeController : Singleton<ComposeController>
         bubbleShip.ResetShip();
         for (int i = 0; i < allBubbles.Count; i++)
         {
-            if(allBubbles[i] && allBubbles[i].gameObject)
+            if (allBubbles[i] && allBubbles[i].gameObject)
                 Destroy(allBubbles[i].gameObject);
         }
+
         allBubbles.Clear();
     }
 
@@ -101,13 +106,10 @@ public class ComposeController : Singleton<ComposeController>
         hideOnStart.ForEach(go => go.SetActive(true));
         showOnStart.ForEach(go => go.SetActive(false));
 
-        foreach (var level in _bubbles)
+        foreach (var bubble in _bubbles)
         {
-            foreach (var bubble in level)
-            {
-                var instance = Instantiate(bubblePrefab, bubbleOrigin);
-                instance.Init(bubble.data, bubble.size);
-            }
+            var instance = Instantiate(bubblePrefab, bubbleOrigin.position, Quaternion.identity);
+            instance.Init(bubble.data, bubble.size);
         }
     }
 }

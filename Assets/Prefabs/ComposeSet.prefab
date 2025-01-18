@@ -664,7 +664,7 @@ Transform:
   m_GameObject: {fileID: 3128325153823397334}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.42, y: -0.5, z: 0}
+  m_LocalPosition: {x: -8.67, y: -2.62, z: 0}
   m_LocalScale: {x: 1, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -834,20 +834,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _bubbles
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.ValueTuple`2[[BubbleData,
-        Assembly-CSharp],[System.Single, mscorlib]], mscorlib]], mscorlib]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[System.ValueTuple`2[[BubbleData,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[System.ValueTuple`2[[BubbleData,
-        Assembly-CSharp],[System.Single, mscorlib]], mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
       Data: System.ValueTuple`2[[BubbleData, Assembly-CSharp],[System.Single, mscorlib]],
         mscorlib
     - Name: Item1
@@ -855,26 +848,7 @@ MonoBehaviour:
       Data: 0
     - Name: Item2
       Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: System.ValueTuple`2[[BubbleData, Assembly-CSharp],[System.Single, mscorlib]],
-        mscorlib
-    - Name: Item1
-      Entry: 10
-      Data: 0
-    - Name: Item2
-      Entry: 4
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1427,7 +1401,7 @@ Transform:
   m_GameObject: {fileID: 5846068412339329170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.88, y: -11.82, z: 0}
+  m_LocalPosition: {x: 3.34, y: -14.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1458,7 +1432,7 @@ Transform:
   m_GameObject: {fileID: 6500731532222390282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.88, y: -14.5, z: 0}
+  m_LocalPosition: {x: 0.29, y: -14.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1625,7 +1599,7 @@ Transform:
   m_GameObject: {fileID: 7050720217860030642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.3291693, y: -15.935022, z: 10.83118}
+  m_LocalPosition: {x: 5.45, y: -16.14, z: 10.83118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2019,7 +1993,7 @@ Transform:
   m_GameObject: {fileID: 7756668239713244060}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.43, y: -0.5, z: 0}
+  m_LocalPosition: {x: -1.58, y: -13.81, z: 0}
   m_LocalScale: {x: 1, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2307,7 +2281,7 @@ Transform:
   m_GameObject: {fileID: 8623465770063820888}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.06, z: 0}
+  m_LocalPosition: {x: -0.07, y: -5.02, z: 0}
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2605,7 +2579,7 @@ Transform:
   m_GameObject: {fileID: 8853492698571788940}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: -1.55, y: -10.3, z: 0}
   m_LocalScale: {x: 20, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
