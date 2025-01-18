@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!20 &124358360 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 500097622060784314, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+  m_PrefabInstance: {fileID: 203697273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &203697273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,6 +219,14 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4092316275747160249, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+    - target: {fileID: 4823051000653135420, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: shipCamera
+      value: 
+      objectReference: {fileID: 124358360}
+    - target: {fileID: 4823051000653135420, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: pushForceFactor
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7679784763983919050, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -230,17 +243,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8015276342112279764, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: a1d22593cdab4814d8b4fbec662f738a, type: 2}
-    - target: {fileID: 8989228785741823402, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: b15f58e64b76880459a402eb58d5cdf6, type: 2}
+    - target: {fileID: 8159504462370292108, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6610185035295263357, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}

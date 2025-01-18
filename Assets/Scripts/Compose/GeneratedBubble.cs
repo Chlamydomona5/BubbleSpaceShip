@@ -39,6 +39,8 @@ public class GeneratedBubble : ComposeBubbleBase
     
     public void Explode()
     {
-        bubbleShip.ExplodeBubbleAt(transform.position);
+        Debug.Log("Explode");
+        data.ExplodeEffect.Effect(bubbleShip, transform.position, size);
+        Destroy(gameObject);
     }
 }

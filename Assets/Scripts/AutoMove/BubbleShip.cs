@@ -19,6 +19,9 @@ public class BubbleShip : MonoBehaviour
 
     [SerializeField] private float targetYSpeed = 2f;
     [SerializeField] private float normalAccerlation = 1f;
+    [SerializeField] public float pushForceFactor = 10f;
+
+    [SerializeField] private Camera shipCamera;
     
     private void Awake()
     {
@@ -27,7 +30,7 @@ public class BubbleShip : MonoBehaviour
         DontDestroyOnLoad(transform.parent.gameObject);
     }
     
-    public void ExplodeBubbleAt(Vector2 position)
+    public void ExplodeBubbleAt(GeneratedBubble bubble)
     {
         
     }
@@ -78,14 +81,17 @@ public class BubbleShip : MonoBehaviour
         else
         {
             //Judge which component this click is on
-            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var hit = Physics2D.Raycast(pos, Vector2.up, .1f, LayerMask.NameToLayer("Bubble"));
-            //Draw Ray
-            Debug.DrawRay(pos, Vector2.up, Color.red, 1f);
-            if (hit.collider != null)
+            var pos = shipCamera.ScreenToWorldPoint(Input.mousePosition);
+            pos = new Vector3(pos.x, pos.y, 0);
+            var hits = Physics2D.RaycastAll(pos, Vector2.up, .1f, LayerMask.GetMask("Bubble"));
+            Debug.DrawLine(pos, pos + Vector3.up * 1f, Color.red, 1f);
+            foreach (var hit in hits)
             {
-                var bubble = hit.collider.GetComponent<GeneratedBubble>();
-                bubble.Explode();
+                if (hit.collider)
+                {
+                    var bubble = hit.collider.GetComponent<GeneratedBubble>();
+                    bubble.Explode();
+                }
             }
         }
     }

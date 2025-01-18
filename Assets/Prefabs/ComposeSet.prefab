@@ -2937,6 +2937,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6662500987280484561}
     - target: {fileID: 4967601749281116845, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
+      propertyPath: shipCamera
+      value: 
+      objectReference: {fileID: 500097622060784314}
+    - target: {fileID: 4967601749281116845, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
+      propertyPath: pushForceFactor
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967601749281116845, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
       propertyPath: cameras.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2987,6 +2995,10 @@ PrefabInstance:
     - target: {fileID: 6598898237409104628, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584703389324864797, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

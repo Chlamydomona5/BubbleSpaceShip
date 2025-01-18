@@ -17,7 +17,7 @@ public class PushEffect : ExplodeEffect
     public override void Effect(BubbleShip ship, Vector2 effectPos, float amount)
     {
         var direction = (Vector2)ship.transform.position - effectPos;
-        ship.AddForceToShip(direction.normalized * amount);
+        ship.AddForceToShip(direction.normalized * amount * ship.pushForceFactor);
     }
 }
 
