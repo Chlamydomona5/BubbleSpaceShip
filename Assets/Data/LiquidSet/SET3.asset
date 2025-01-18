@@ -39,7 +39,7 @@ MonoBehaviour:
       Data: 0
     - Name: Item2
       Entry: 4
-      Data: 7
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -52,7 +52,7 @@ MonoBehaviour:
       Data: 1
     - Name: Item2
       Entry: 4
-      Data: 2
+      Data: 4
     - Name: 
       Entry: 8
       Data: 

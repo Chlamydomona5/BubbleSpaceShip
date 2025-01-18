@@ -38,7 +38,7 @@ public class LevelWallBase : MonoBehaviour
                 Vector2 normal = -contact.normal;
                 normal = FindClosestDirection(normal);
                 // 根据法向量朝向改变物体的速度朝向
-                normal = Vector2.Reflect(collision.relativeVelocity, normal) * 100;
+                normal = Vector2.Reflect(bs.previousVelocity  , normal)*(1f/Time.fixedDeltaTime);
                 bs.AddForceToShip(normal);
                 Debug.Log("ADD FORCE " + normal);
             }
@@ -47,20 +47,6 @@ public class LevelWallBase : MonoBehaviour
         {
             //todo: 戳爆最靠近的气泡,
             collision.collider.gameObject.GetComponent<GeneratedBubble>().Explode();
-        }
-        else if (wallType == WallType.corner)
-        {
-            // 遍历所有碰撞点（即使只有一个碰撞点，也能正确处理）
-            foreach (ContactPoint2D contact in collision.contacts)
-            {
-                Vector2 normal = contact.normal;
-
-                // 根据法向量朝向改变物体的速度朝向
-                rb.velocity = Vector2.Reflect(rb.velocity, normal);
-
-                // 打印法向量
-                Debug.Log("Collision normal: " + normal);
-            }
         }
         else if (wallType == WallType.checkPoint) 
         {
@@ -107,6 +93,7 @@ public enum WallType
     spike,
     corner
 }
+
 
 
 
