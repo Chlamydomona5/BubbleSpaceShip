@@ -98,6 +98,12 @@ public class BubbleShip : MonoBehaviour
         components.Add(newBubble);
         newBubble.DisableSelfPhysics();
         newBubble.transform.SetParent(transform);
+        if(newBubble is GeneratedBubble generateBubble && generateBubble.Data.ExplodeEffect is GunEffect)
+        {
+            // Make New Bubble toward the core
+            var direction = (coreBubble.transform.position - newBubble.transform.position).normalized;
+            newBubble.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f);
+        }
         
         // Handle connection
         foreach (var contact in other.contacts)

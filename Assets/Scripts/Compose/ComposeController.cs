@@ -39,6 +39,7 @@ public class ComposeController : Singleton<ComposeController>
 
     private void GenerateAllBubbles()
     {
+        bubbleShip.transform.position = shipOrigin.position;
         foreach (var bubble in _bubbles)
         {
             var instance = Instantiate(bubblePrefab, bubbleOrigin.position + (Vector3)Random.insideUnitCircle, Quaternion.identity);
