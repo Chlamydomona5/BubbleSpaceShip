@@ -32,13 +32,19 @@ public class ComposeController : Singleton<ComposeController>
 
     private void Start()
     {
+        GenerateAllBubbles();
+
+        Cursor.visible = false;
+    }
+
+    private void GenerateAllBubbles()
+    {
         foreach (var bubble in _bubbles)
         {
             var instance = Instantiate(bubblePrefab, bubbleOrigin.position + (Vector3)Random.insideUnitCircle, Quaternion.identity);
             instance.Init(bubble.data, bubble.size);
+            allBubbles.Add(instance);
         }
-
-        Cursor.visible = false;
     }
 
     private void Update()
@@ -120,6 +126,7 @@ public class ComposeController : Singleton<ComposeController>
         }
 
         allBubbles.Clear();
+        GenerateAllBubbles();
     }
 
     public void ResetGame()
