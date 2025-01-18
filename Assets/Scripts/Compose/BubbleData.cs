@@ -31,3 +31,13 @@ public class RotateEffect : ExplodeEffect
         ship.RotateShip();
     }
 }
+
+public class GunEffect : ExplodeEffect
+{
+    public Bullet BulletPrefab;
+    public override void Effect(BubbleShip ship, Vector2 effectPos, float amount)
+    {
+        var bullet = GameObject.Instantiate(BulletPrefab, effectPos, Quaternion.identity);
+        bullet.Init((effectPos - (Vector2)ship.transform.position).normalized);
+    }
+}
