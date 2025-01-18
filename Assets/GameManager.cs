@@ -18,6 +18,6 @@ public class GameManager : MonoBehaviour
         if(checkPointStage > LevelStage)
             LevelStage = checkPointStage;
 
-        //todo ¸üĞÂ¿ÉÓÃµÄ²ÄÁÏ
+        //todo æ›´æ–°å¯ç”¨çš„ææ–™
     }
 }

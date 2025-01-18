@@ -9,7 +9,9 @@ public class BubbleShip : MonoBehaviour
     
     public List<ComposeBubbleBase> components;
     public List<(ComposeBubbleBase connectionA, ComposeBubbleBase connectionB)> Connections;
-    public bool OnMouseControl;
+    
+    public bool onMouseControl;
+    public bool onMove;
     
     private Rigidbody2D _rigidbody;
     
@@ -39,7 +41,7 @@ public class BubbleShip : MonoBehaviour
     
     private void Update()
     {
-        if (OnMouseControl)
+        if (onMouseControl)
         {
             var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos = new Vector3(pos.x, pos.y, 0);
@@ -49,11 +51,13 @@ public class BubbleShip : MonoBehaviour
 
     private void OnMouseDown()
     {
-        OnMouseControl = true;
+        if(!onMove)
+            onMouseControl = true;
     }
     
     private void OnMouseUp()
     {
-        OnMouseControl = false;
+        if(!onMove)
+            onMouseControl = false;
     }
 }
