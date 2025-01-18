@@ -100,6 +100,7 @@ public class ComposeController : Singleton<ComposeController>
     {
         Destroy(crab.GetComponent<Rigidbody2D>());
         Destroy(crab.GetComponent<Collider2D>());
+        bubbleShip.Stop();
         crab.transform.DOJump(bubbleShip.transform.position, 1f, 1, 1f).OnComplete((() =>
         {
             bubbleShip.ActualMove(true);

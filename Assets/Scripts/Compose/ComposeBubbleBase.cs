@@ -50,7 +50,7 @@ public class ComposeBubbleBase : MonoBehaviour
         Destroy(Rigidbody2D);
     }
 
-    public virtual void Explode()
+    public virtual void Explode(bool checkConnection)
     {
         
     }

@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GeneratedBubble : ComposeBubbleBase
@@ -25,15 +26,20 @@ public class GeneratedBubble : ComposeBubbleBase
             if (other.gameObject.GetComponentInParent<BubbleShip>())
             {
                 bubbleShip = other.gameObject.GetComponentInParent<BubbleShip>();
-                bubbleShip.ReceiveBubble(this);
+                bubbleShip.ReceiveBubble(this, other);
             }
         }
     }
     
-    public override void Explode()
+    public override void Explode(bool checkConnection)
     {
         Debug.Log("Explode");
         data.ExplodeEffect.Effect(bubbleShip, transform.position, size);
-        Destroy(gameObject);
+        if (checkConnection)
+        {
+            bubbleShip.ExplodeBubbleAt(this);
+        }
+        
+        DestroyImmediate(gameObject);
     }
 }

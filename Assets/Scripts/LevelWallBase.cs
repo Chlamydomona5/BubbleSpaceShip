@@ -46,7 +46,7 @@ public class LevelWallBase : MonoBehaviour
         else if(wallType == WallType.spike)
         {
             //todo: 戳爆最靠近的气泡,
-            collision.collider.gameObject.GetComponent<GeneratedBubble>().Explode();
+            collision.collider.gameObject.GetComponent<GeneratedBubble>().Explode(true);
         }
         else if (wallType == WallType.checkPoint) 
         {

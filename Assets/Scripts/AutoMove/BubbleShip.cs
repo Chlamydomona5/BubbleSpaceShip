@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class BubbleShip : MonoBehaviour
+public class BubbleShip : SerializedMonoBehaviour
 {
     public ComposeBubbleBase coreBubble;
     
@@ -30,15 +31,55 @@ public class BubbleShip : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        Connections = new List<(ComposeBubbleBase, ComposeBubbleBase)>();
         
         DontDestroyOnLoad(transform.parent.gameObject);
     }
-    
+
     public void ExplodeBubbleAt(GeneratedBubble bubble)
     {
-        
+        Connections.RemoveAll(x => x.connectionA == bubble || x.connectionB == bubble);
+        var visited = new HashSet<ComposeBubbleBase>();
+        var queue = new Queue<ComposeBubbleBase>();
+
+        // Start from coreBubble
+        queue.Enqueue(coreBubble);
+        visited.Add(coreBubble);
+
+        while (queue.Count > 0)
+        {
+            var currentBubble = queue.Dequeue();
+            foreach (var connection in Connections)
+            {
+                if (connection.connectionA == currentBubble && !visited.Contains(connection.connectionB))
+                {
+                    visited.Add(connection.connectionB);
+                    queue.Enqueue(connection.connectionB);
+                }
+                else if (connection.connectionB == currentBubble && !visited.Contains(connection.connectionA))
+                {
+                    visited.Add(connection.connectionA);
+                    queue.Enqueue(connection.connectionA);
+                }
+            }
+        }
+
+        // Find isolated components
+        List<ComposeBubbleBase> isolated = new List<ComposeBubbleBase>();
+        foreach (var component in components)
+        {
+            if (!visited.Contains(component))
+            {
+                isolated.Add(component);
+            }
+        }
+
+        for (int i = 0; i < isolated.Count; i++)
+        {
+            isolated[i].Explode(false);
+        }
     }
-    
+
     public void AddForceToShip(Vector2 force)
     {
         _rigidbody.AddForce (force,ForceMode2D.Force);
@@ -50,11 +91,21 @@ public class BubbleShip : MonoBehaviour
         transform.DOBlendableRotateBy(new Vector3(0, 0, 90), 0.5f).SetEase(Ease.InSine);
     }
 
-    public void ReceiveBubble(ComposeBubbleBase newBubble)
+    public void ReceiveBubble(ComposeBubbleBase newBubble, Collision2D other)
     {
         components.Add(newBubble);
         newBubble.DisableSelfPhysics();
         newBubble.transform.SetParent(transform);
+        
+        // Handle connection
+        foreach (var contact in other.contacts)
+        {
+            if (contact.collider.GetComponent<ComposeBubbleBase>())
+            {
+                var otherBubble = contact.collider.GetComponent<ComposeBubbleBase>();
+                Connections.Add((newBubble, otherBubble));
+            }
+        }
     }
     
     private void Update()
@@ -100,7 +151,7 @@ public class BubbleShip : MonoBehaviour
                 if (hit.collider)
                 {
                     var bubble = hit.collider.GetComponent<GeneratedBubble>();
-                    bubble?.Explode();
+                    bubble?.Explode(true);
                 }
             }
         }
@@ -131,5 +182,10 @@ public class BubbleShip : MonoBehaviour
                 Destroy(components[i].gameObject);
         }
         components.Clear();
+    }
+
+    public void Stop()
+    {
+        _rigidbody.velocity = Vector2.zero;
     }
 }
