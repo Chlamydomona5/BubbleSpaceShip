@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5563195088077742144}
   - component: {fileID: 8645638975269579198}
-  - component: {fileID: 535448097611590648}
   - component: {fileID: 1859355890585920010}
   - component: {fileID: 4370092460511252599}
-  m_Layer: 0
-  m_Name: ComposeBubble
+  - component: {fileID: -6174223930244745779}
+  m_Layer: 6
+  m_Name: GeneratedBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &535448097611590648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5346759659249096585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33a8ff4d558d119499005a57220e5cd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 0}
-  releaseForce: {x: 150, y: 150}
-  size: 0
 --- !u!50 &1859355890585920010
 Rigidbody2D:
   serializedVersion: 4
@@ -164,3 +149,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-6174223930244745779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346759659249096585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8a0e9ca0e24faba9bae85493893839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  bubbleShip: {fileID: 0}
+  size: 0
+  releaseForce: {x: 150, y: 150}

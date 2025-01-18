@@ -8,52 +8,44 @@ using UnityEngine.EventSystems;
 public class ComposeBubbleBase : MonoBehaviour
 {
     [SerializeField] private BubbleData data;
-
-    [SerializeField] private Vector2 releaseForce;
     
-    private bool _onMouseControl;
-    private Rigidbody2D _rigidbody2D;
-    private Collider2D _collider2D;
+    protected bool OnMouseControl;
+    protected Rigidbody2D Rigidbody2D;
+    protected Collider2D Collider2D;
 
-    [SerializeField, ReadOnly] private float size;
-
+    [SerializeField, ReadOnly] protected BubbleShip bubbleShip;
+    
     public void Init(BubbleData data)
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _collider2D = GetComponent<Collider2D>();
+        Rigidbody2D = GetComponent<Rigidbody2D>();
+        Collider2D = GetComponent<Collider2D>();
 
         this.data = data;
     }
 
     private void Update()
     {
-        if (_onMouseControl)
+        if (OnMouseControl)
         {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pos = new Vector3(pos.x, pos.y, 0);
+            Rigidbody2D.MovePosition(pos);
         }
     }
 
     private void OnMouseDown()
     {
-        _onMouseControl = true;
+        OnMouseControl = true;
     }
     
     private void OnMouseUp()
     {
-        _onMouseControl = false;
+        OnMouseControl = false;
     }
 
-    public void Blow(float delta)
+    public void DisableSelfPhysics()
     {
-        size += delta;
-        transform.localScale = Vector3.one * size;
-        transform.position += Vector3.up * delta / 2f;
-    }
-
-    public void Release()
-    {
-        _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-        _rigidbody2D.AddForce(releaseForce);
+        OnMouseControl = false;
+        Destroy(Rigidbody2D);
     }
 }
