@@ -898,6 +898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1603202239285764614}
+  - component: {fileID: 4092316275747160249}
   m_Layer: 0
   m_Name: ComposeSet
   m_TagString: Untagged
@@ -926,9 +927,48 @@ Transform:
   - {fileID: 2953447791010350174}
   - {fileID: 5962611014131658784}
   - {fileID: 3634316399836192592}
-  - {fileID: 3515827166739455903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4092316275747160249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910016813579541571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb6b104874340528f175c15ad8e2e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  crabSpeed: 4
+  consumeLiquidSpeed: 1
+  minimumLiquid: 0.1
+  blowSpeed: 1
+  minimumBlowVolume: 0.1
+  bubbleInitialYOffset: 0.5
+  crab: {fileID: 8345115292007019327}
+  craw: {fileID: 19726424999657257}
+  lineRenderer: {fileID: 787333706687970139}
+  bubblePrefab: {fileID: -6174223930244745779, guid: 1a80b55ff62a8c74e9b1765fef78adfb, type: 3}
+  bubbleShip: {fileID: 4823051000653135420}
+  currentInitingBubble: {fileID: 0}
+  currentTouchingLiquidBottle: {fileID: 0}
+  hideOnStart:
+  - {fileID: 7497797187838593815}
+  - {fileID: 7456580832520656727}
+  showOnStart:
+  - {fileID: 4628303130637527191}
+  - {fileID: 153009297214253957}
 --- !u!1 &4394586598155916256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,72 +1569,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 119
---- !u!1 &6212470434834919586
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3515827166739455903}
-  - component: {fileID: 6517792198419612724}
-  m_Layer: 0
-  m_Name: ComposeController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3515827166739455903
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6212470434834919586}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1603202239285764614}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6517792198419612724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6212470434834919586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb6b104874340528f175c15ad8e2e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  crabSpeed: 4
-  consumeLiquidSpeed: 1
-  minimumLiquid: 0.1
-  blowSpeed: 1
-  minimumBlowVolume: 0.1
-  bubbleInitialYOffset: 0.5
-  crab: {fileID: 8345115292007019327}
-  craw: {fileID: 19726424999657257}
-  lineRenderer: {fileID: 787333706687970139}
-  bubblePrefab: {fileID: -6174223930244745779, guid: 1a80b55ff62a8c74e9b1765fef78adfb, type: 3}
-  bubbleShip: {fileID: 4823051000653135420}
-  currentInitingBubble: {fileID: 0}
-  currentTouchingLiquidBottle: {fileID: 0}
 --- !u!1 &6919504200611030804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,10 +2624,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2244687514124436738}
-        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: LoadToLevel
-        m_Mode: 5
+      - m_Target: {fileID: 4092316275747160249}
+        m_TargetAssemblyTypeName: ComposeController, Assembly-CSharp
+        m_MethodName: StartActualMove
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2771,7 +2745,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.90027314, b: 0.6509433, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
