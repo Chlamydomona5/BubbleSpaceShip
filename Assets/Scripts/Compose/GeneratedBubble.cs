@@ -15,6 +15,7 @@ public class GeneratedBubble : ComposeBubbleBase
             SpriteRenderer.sprite = data.sprite;
         SpriteRenderer.color = data.color;
         transform.localScale = Vector3.one * size;
+        this.size = size;
 
         // 获取图片的原始大小
         Sprite sprite = SpriteRenderer.sprite;
@@ -44,6 +45,8 @@ public class GeneratedBubble : ComposeBubbleBase
     
     public override void Explode(bool checkConnection)
     {
+        if(!this || !gameObject) return;
+
         Debug.Log("Explode");
         data.ExplodeEffect.Effect(bubbleShip, transform.position, size);
         if (checkConnection)
@@ -51,7 +54,9 @@ public class GeneratedBubble : ComposeBubbleBase
             bubbleShip.ExplodeBubbleAt(this);
         }
         
-        if(gameObject)
-            DestroyImmediate(gameObject);
+        // ???
+        if(!this || !gameObject) return;
+
+        DestroyImmediate(gameObject);
     }
 }

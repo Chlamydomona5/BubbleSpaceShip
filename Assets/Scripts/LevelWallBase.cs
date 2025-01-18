@@ -13,8 +13,8 @@ public class LevelWallBase : MonoBehaviour
     public bool disableRender = true;
     private void Awake()
     {
-        if(disableRender)
-        GetComponent<SpriteRenderer>().enabled = false;
+        /*if(disableRender)
+            GetComponent<SpriteRenderer>().enabled = false;*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,17 +25,12 @@ public class LevelWallBase : MonoBehaviour
         }
 
         BubbleShip bs = collision.collider.GetComponentInParent<BubbleShip>();
-        Rigidbody2D rb = bs.GetComponent<Rigidbody2D>();
-        if (bs == null|| rb == null)
-        {
-            Debug.LogError("111");
-        }
-
+        if(!bs) return;
 
         if (wallType == WallType.normal || wallType == WallType.bounce)
         {
             GeneratedBubble gb = collision.collider.gameObject.GetComponent<GeneratedBubble>();
-            if (gb.Data.ExplodeEffect is FrictionEffect)
+            if (gb && gb.Data && gb.Data.ExplodeEffect is FrictionEffect)
             {
 
             }
@@ -49,7 +44,6 @@ public class LevelWallBase : MonoBehaviour
                     // 根据法向量朝向改变物体的速度朝向
                     normal = Vector2.Reflect(bs.previousVelocity, normal) * (1f / Time.fixedDeltaTime);
                     bs.AddForceToShip(normal);
-                    Debug.Log("ADD FORCE " + normal);
                 }
             }
         }

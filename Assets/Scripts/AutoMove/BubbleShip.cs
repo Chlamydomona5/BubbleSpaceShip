@@ -6,7 +6,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class BubbleShip : SerializedMonoBehaviour
+public class BubbleShip : MonoBehaviour
 {
     public ComposeBubbleBase coreBubble;
     
@@ -38,6 +38,7 @@ public class BubbleShip : SerializedMonoBehaviour
 
     public void ExplodeBubbleAt(GeneratedBubble bubble)
     {
+        components.Remove(bubble);
         Connections.RemoveAll(x => x.connectionA == bubble || x.connectionB == bubble);
         var visited = new HashSet<ComposeBubbleBase>();
         var queue = new Queue<ComposeBubbleBase>();
@@ -82,9 +83,10 @@ public class BubbleShip : SerializedMonoBehaviour
 
     public void AddForceToShip(Vector2 force)
     {
-        _rigidbody.AddForce (force,ForceMode2D.Force);
+        Debug.Log("ADD FORCE " + force);
+        _rigidbody.AddForce(force, ForceMode2D.Force);
     }
-    
+
     public void RotateShip()
     {
         // Dotween rotate 90
