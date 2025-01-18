@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     {
         if(checkPointStage > LevelStage)
             LevelStage = checkPointStage;
-
+        ComposeController.Instance.ResetGame();
         //todo 更新可用的材料
     }
 }
