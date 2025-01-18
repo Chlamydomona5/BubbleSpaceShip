@@ -30,7 +30,11 @@ public class ComposeController : Singleton<ComposeController>
 
     private void Start()
     {
-        ResetGame();
+        foreach (var bubble in _bubbles)
+        {
+            var instance = Instantiate(bubblePrefab, bubbleOrigin.position, Quaternion.identity);
+            instance.Init(bubble.data, bubble.size);
+        }
     }
 
     private void Update()
@@ -77,6 +81,8 @@ public class ComposeController : Singleton<ComposeController>
 
     public void StartActualMove()
     {
+        Destroy(crab.GetComponent<Rigidbody2D>());
+        Destroy(crab.GetComponent<Collider2D>());
         crab.transform.DOJump(bubbleShip.transform.position, 1f, 1, 1f).OnComplete((() =>
         {
             bubbleShip.ActualMove(true);
@@ -100,16 +106,6 @@ public class ComposeController : Singleton<ComposeController>
 
     public void ResetGame()
     {
-        ResetCompose();
-        bubbleShip.transform.position = shipOrigin.position;
-        bubbleShip.ActualMove(false);
-        hideOnStart.ForEach(go => go.SetActive(true));
-        showOnStart.ForEach(go => go.SetActive(false));
-
-        foreach (var bubble in _bubbles)
-        {
-            var instance = Instantiate(bubblePrefab, bubbleOrigin.position, Quaternion.identity);
-            instance.Init(bubble.data, bubble.size);
-        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
