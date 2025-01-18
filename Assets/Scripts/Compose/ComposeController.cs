@@ -126,7 +126,7 @@ public class ComposeController : Singleton<ComposeController>
         liquidBottles.ForEach(x => x.ResetBottle());
         for (int i = 0; i < allBubbles.Count; i++)
         {
-            Destroy(allBubbles[i].gameObject);
+            Destroy(allBubbles[i]?.gameObject);
         }
         allBubbles.Clear();
     }

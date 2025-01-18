@@ -95,18 +95,20 @@ public class BubbleShip : MonoBehaviour
             }
         }
     }
-    
-    
 
     private void OnMouseUp()
     {
         if(!onMove)
+        {
             onMouseControl = false;
+            _rigidbody.velocity = Vector2.zero;
+        }
     }
 
     public void StartActualMove()
     {
         onMove = true;
+        _rigidbody.velocity = Vector2.zero;
     }
 
 
