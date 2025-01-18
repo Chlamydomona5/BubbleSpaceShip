@@ -1375,7 +1375,6 @@ Transform:
   m_Children:
   - {fileID: 7637055965922333245}
   - {fileID: 8793165408291959619}
-  - {fileID: 7613157932473744994}
   m_Father: {fileID: 1603202239285764614}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5168112155049825752
@@ -3011,68 +3010,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6598898237409104628, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
   m_PrefabInstance: {fileID: 440961528066682001}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2826244881775317512
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 9212475130691546321}
-    m_Modifications:
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972523932948846709, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-      propertyPath: m_Name
-      value: Bottle1 (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
---- !u!4 &7613157932473744994 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5665396885275323498, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
-  m_PrefabInstance: {fileID: 2826244881775317512}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2838338154591993431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3121,6 +3058,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6603379276857197565, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: b15f58e64b76880459a402eb58d5cdf6, type: 2}
     - target: {fileID: 8972523932948846709, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
       propertyPath: m_Name
       value: Bottle1
@@ -3183,6 +3124,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6603379276857197565, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: a1d22593cdab4814d8b4fbec662f738a, type: 2}
     - target: {fileID: 8972523932948846709, guid: 997b1fe95c4bd0d4bb302b7542c5ce10, type: 3}
       propertyPath: m_Name
       value: Bottle1 (1)
