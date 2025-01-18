@@ -38,7 +38,7 @@ public class LevelWallBase : MonoBehaviour
                 Vector2 normal = -contact.normal;
                 normal = FindClosestDirection(normal);
                 // 根据法向量朝向改变物体的速度朝向
-                normal = Vector2.Reflect(collision.relativeVelocity, normal) * 100;
+                normal = Vector2.Reflect(collision.relativeVelocity*2 , normal);
                 bs.AddForceToShip(normal);
                 Debug.Log("ADD FORCE " + normal);
             }
