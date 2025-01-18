@@ -50,7 +50,6 @@ public class LevelWallBase : MonoBehaviour
         }
         else if (wallType == WallType.checkPoint) 
         {
-            GameManager.Instance.updateLevelCheckpoint(stage);
             Destroy(gameObject);
         }
     }

@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int LevelStage = 0;
     public static GameManager Instance;
     private void Awake()
     {
         Instance = this;
     }
-
-
-    public void updateLevelCheckpoint(int checkPointStage)
+    
+    public void LoadNextLevel()
     {
-        if(checkPointStage > LevelStage)
-            LevelStage = checkPointStage;
-        ComposeController.Instance.ResetGame();
-        //todo 更新可用的材料
+        if (UnityEngine.SceneManagement.SceneManager.sceneCount ==
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1)
+        {
+            Debug.Log("Win");
+        }
+        else 
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
