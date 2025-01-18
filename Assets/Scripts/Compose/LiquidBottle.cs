@@ -34,4 +34,9 @@ public class LiquidBottle : MonoBehaviour
         }
         return false;
     }
+
+    public void ResetBottle()
+    {
+        _currentLiquidVolume = maxLiquidVolume;
+    }
 }

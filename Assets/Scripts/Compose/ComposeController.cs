@@ -24,6 +24,9 @@ public class ComposeController : Singleton<ComposeController>
     [SerializeField] private List<GameObject> hideOnStart;
     [SerializeField] private List<GameObject> showOnStart;
     
+    [SerializeField] private List<LiquidBottle> liquidBottles;
+    [SerializeField] private List<ComposeBubbleBase> allBubbles;
+    
     private void Update()
     {
         var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -75,6 +78,8 @@ public class ComposeController : Singleton<ComposeController>
             bubble.Init(data);
             currentInitingBubble = bubble;
             currentInitingBubble.Blow(minimumBlowVolume);
+            
+            allBubbles.Add(bubble);
         }
     }
 
@@ -100,5 +105,16 @@ public class ComposeController : Singleton<ComposeController>
         bubbleShip.StartActualMove();
         hideOnStart.ForEach(go => go.SetActive(false));
         showOnStart.ForEach(go => go.SetActive(true));
+    }
+
+    public void ResetCompose()
+    {
+        bubbleShip.ResetShip();
+        liquidBottles.ForEach(x => x.ResetBottle());
+        for (int i = 0; i < allBubbles.Count; i++)
+        {
+            Destroy(allBubbles[i].gameObject);
+        }
+        allBubbles.Clear();
     }
 }

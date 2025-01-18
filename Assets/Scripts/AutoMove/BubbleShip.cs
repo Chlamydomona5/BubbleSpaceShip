@@ -90,7 +90,7 @@ public class BubbleShip : MonoBehaviour
                 if (hit.collider)
                 {
                     var bubble = hit.collider.GetComponent<GeneratedBubble>();
-                    bubble.Explode();
+                    bubble?.Explode();
                 }
             }
         }
@@ -108,4 +108,12 @@ public class BubbleShip : MonoBehaviour
     }
 
 
+    public void ResetShip()
+    {
+        for (int i = 0; i < components.Count; i++)
+        {
+            Destroy(components[i].gameObject);
+        }
+        components.Clear();
+    }
 }
