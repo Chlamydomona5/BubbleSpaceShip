@@ -9,6 +9,8 @@ public class ComposeController : Singleton<ComposeController>
 
     [SerializeField] private GameObject crab;
     [SerializeField] private GameObject craw;
+    [SerializeField] private Transform crawOpen;
+    [SerializeField] private Transform crawClose;
     [SerializeField] private LineRenderer lineRenderer;
 
     [SerializeField] private GeneratedBubble bubblePrefab;
@@ -32,9 +34,11 @@ public class ComposeController : Singleton<ComposeController>
     {
         foreach (var bubble in _bubbles)
         {
-            var instance = Instantiate(bubblePrefab, bubbleOrigin.position, Quaternion.identity);
+            var instance = Instantiate(bubblePrefab, bubbleOrigin.position + (Vector3)Random.insideUnitCircle, Quaternion.identity);
             instance.Init(bubble.data, bubble.size);
         }
+
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -49,7 +53,7 @@ public class ComposeController : Singleton<ComposeController>
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         craw.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
         // Adjust Line
-        lineRenderer.SetPosition(0, crab.transform.position);
+        lineRenderer.SetPosition(0, crab.transform.position + Vector3.right / 2f);
         lineRenderer.SetPosition(1, craw.transform.position);
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -61,6 +65,19 @@ public class ComposeController : Singleton<ComposeController>
         {
             CameraZoom();
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            crawOpen.gameObject.SetActive(false);
+            crawClose.gameObject.SetActive(true);
+        }
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            crawOpen.gameObject.SetActive(true);
+            crawClose.gameObject.SetActive(false);
+        }
+        
     }
 
     private void CameraZoom()
