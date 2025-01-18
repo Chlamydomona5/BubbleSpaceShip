@@ -716,7 +716,7 @@ MonoBehaviour:
       Data: 0
     - Name: Item2
       Entry: 4
-      Data: 5
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -729,7 +729,7 @@ MonoBehaviour:
       Data: 0
     - Name: Item2
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -2449,6 +2449,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 500097622060784314}
     - target: {fileID: 4967601749281116845, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
+      propertyPath: targetYSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967601749281116845, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
       propertyPath: pushForceFactor
       value: 200
       objectReference: {fileID: 0}
@@ -2510,7 +2514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8584703389324864797, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

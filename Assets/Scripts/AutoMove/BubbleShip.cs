@@ -14,6 +14,7 @@ public class BubbleShip : MonoBehaviour
     
     public bool onMouseControl;
     public bool onMove;
+    private Vector2 _mouseRelativePosition;
     
     private Rigidbody2D _rigidbody;
 
@@ -64,7 +65,7 @@ public class BubbleShip : MonoBehaviour
         {
             var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos = new Vector3(pos.x, pos.y, 0);
-            _rigidbody.MovePosition(pos);
+            _rigidbody.MovePosition(pos + (Vector3)_mouseRelativePosition);
         }
     }
 
@@ -85,7 +86,10 @@ public class BubbleShip : MonoBehaviour
     private void OnMouseDown()
     {
         if (!onMove)
+        {
             onMouseControl = true;
+            _mouseRelativePosition = (Vector2)transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
         else
         {
             //Judge which component this click is on

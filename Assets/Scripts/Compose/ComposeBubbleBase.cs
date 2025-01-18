@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class ComposeBubbleBase : MonoBehaviour
 {
     protected bool OnMouseControl;
+    
     protected Rigidbody2D Rigidbody2D;
     protected Collider2D Collider2D;
     protected SpriteRenderer SpriteRenderer;
