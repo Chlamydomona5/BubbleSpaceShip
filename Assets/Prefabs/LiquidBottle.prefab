@@ -167,6 +167,7 @@ MonoBehaviour:
   data: {fileID: 0}
   maxLiquidVolume: 5
   _currentLiquidVolume: 0
+  liquidParent: {fileID: 1077746686010453180}
 --- !u!212 &25133465059553870
 SpriteRenderer:
   m_ObjectHideFlags: 0
