@@ -28,7 +28,13 @@ public class ComposeController : Singleton<ComposeController>
     [SerializeField] private List<ComposeBubbleBase> allBubbles;
 
     [SerializeField] private List<LiquidSet> levelSets;
-    
+    [SerializeField] private Transform originPosition;
+
+    private void Start()
+    {
+        ResetGame();
+    }
+
     private void Update()
     {
         var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -69,6 +75,11 @@ public class ComposeController : Singleton<ComposeController>
             // Crab Move
             if(Input.GetKey(KeyCode.A)) crab.transform.position += Vector3.left * (crabSpeed * Time.deltaTime);
             if(Input.GetKey(KeyCode.D)) crab.transform.position += Vector3.right * (crabSpeed * Time.deltaTime);
+        }
+        
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            ResetGame();
         }
     }
     
@@ -132,9 +143,10 @@ public class ComposeController : Singleton<ComposeController>
         }
     }
 
-    public void ResetGmae()
+    public void ResetGame()
     {
         ReadLiquidSet(GameManager.Instance.LevelStage);
         ResetCompose();
+        bubbleShip.transform.position = originPosition.position;
     }
 }
