@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.618083, a: 0.44313726}
+  m_Color: {r: 0, g: 1, b: 0.33177757, a: 0.44313726}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallType: 0
   NormalVector: {x: 0, y: 0}
+  bounceFactor: 1
+  stage: 0
 --- !u!61 &5090097989781642241
 BoxCollider2D:
   m_ObjectHideFlags: 0
