@@ -4,6 +4,7 @@ using UnityEngine;
 public class GeneratedBubble : ComposeBubbleBase
 {
     [SerializeField] private BubbleData data;
+    public BubbleData Data => data;
     [SerializeField, ReadOnly] private float size;
     [SerializeField] private Vector2 releaseForce;
     
