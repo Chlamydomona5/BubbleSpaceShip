@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5665396885275323498}
+  - component: {fileID: 6603379276857197565}
   - component: {fileID: 25133465059553870}
   - component: {fileID: 7653767743991928806}
   - component: {fileID: 2006868303081600288}
-  - component: {fileID: 6603379276857197565}
   m_Layer: 0
   m_Name: LiquidBottle
   m_TagString: Untagged
@@ -35,6 +35,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6603379276857197565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972523932948846709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1711ba98af3404ebb4bede66a16ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  maxLiquidVolume: 5
+  _currentLiquidVolume: 0
 --- !u!212 &25133465059553870
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -159,18 +174,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6603379276857197565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8972523932948846709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1711ba98af3404ebb4bede66a16ed2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 0}
-  maxLiquidVolume: 5
-  _currentLiquidVolume: 0

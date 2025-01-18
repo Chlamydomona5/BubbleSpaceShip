@@ -14,10 +14,11 @@ public abstract class ExplodeEffect
 
 public class PushEffect : ExplodeEffect
 {
+    public float Factor;
     public override void Effect(BubbleShip ship, Vector2 effectPos, float amount)
     {
         var direction = (Vector2)ship.transform.position - effectPos;
-        ship.AddForceToShip(direction.normalized * amount * ship.pushForceFactor);
+        ship.AddForceToShip(direction.normalized * amount * ship.pushForceFactor * Factor);
     }
 }
 

@@ -26,6 +26,8 @@ public class ComposeController : Singleton<ComposeController>
     
     [SerializeField] private List<LiquidBottle> liquidBottles;
     [SerializeField] private List<ComposeBubbleBase> allBubbles;
+
+    [SerializeField] private List<LiquidSet> levelSets;
     
     private void Update()
     {
