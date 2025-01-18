@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class LevelWallBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer != LayerMask.NameToLayer("Bubble"))
+        if(collision.collider.gameObject.layer != LayerMask.NameToLayer("Bubble"))
         {
             return;
         }
@@ -26,40 +26,34 @@ public class LevelWallBase : MonoBehaviour
         }
 
 
-        if (wallType == WallType.normal)
+        if (wallType == WallType.normal || wallType == WallType.bounce)
         {
-            // ±éÀúËùÓĞÅö×²µã£¨¼´Ê¹Ö»ÓĞÒ»¸öÅö×²µã£¬Ò²ÄÜÕıÈ·´¦Àí£©
+            // éå†æ‰€æœ‰ç¢°æ’ç‚¹ï¼ˆå³ä½¿åªæœ‰ä¸€ä¸ªç¢°æ’ç‚¹ï¼Œä¹Ÿèƒ½æ­£ç¡®å¤„ç†ï¼‰
             foreach (ContactPoint2D contact in collision.contacts)
             {
-                Vector2 normal = contact.normal;
-
-                // ¸ù¾İ·¨ÏòÁ¿³¯Ïò¸Ä±äÎïÌåµÄËÙ¶È³¯Ïò
-                bs.AddForceToShip(Vector2.Reflect(rb.velocity, normal));
-
-                // ´òÓ¡·¨ÏòÁ¿
-                Debug.Log("Collision normal: " + normal);
+                Vector2 normal = -contact.normal;
+                normal = FindClosestDirection(normal);
+                // æ ¹æ®æ³•å‘é‡æœå‘æ”¹å˜ç‰©ä½“çš„é€Ÿåº¦æœå‘
+                normal = Vector2.Reflect(collision.relativeVelocity, normal) * 100;
+                bs.AddForceToShip(normal);
+                Debug.Log("ADD FORCE " + normal);
             }
         }
-        else if (wallType == WallType.bounce)
-        {
-            bs.AddForceToShip(NormalVector.normalized * rb.velocity.magnitude * bounceFactor);
-        }
-
         else if(wallType == WallType.spike)
         {
-            //todo: ´Á±¬×î¿¿½üµÄÆøÅİ
+            //todo: æˆ³çˆ†æœ€é è¿‘çš„æ°”æ³¡
         }
         else if (wallType == WallType.corner)
         {
-            // ±éÀúËùÓĞÅö×²µã£¨¼´Ê¹Ö»ÓĞÒ»¸öÅö×²µã£¬Ò²ÄÜÕıÈ·´¦Àí£©
+            // éå†æ‰€æœ‰ç¢°æ’ç‚¹ï¼ˆå³ä½¿åªæœ‰ä¸€ä¸ªç¢°æ’ç‚¹ï¼Œä¹Ÿèƒ½æ­£ç¡®å¤„ç†ï¼‰
             foreach (ContactPoint2D contact in collision.contacts)
             {
                 Vector2 normal = contact.normal;
 
-                // ¸ù¾İ·¨ÏòÁ¿³¯Ïò¸Ä±äÎïÌåµÄËÙ¶È³¯Ïò
+                // æ ¹æ®æ³•å‘é‡æœå‘æ”¹å˜ç‰©ä½“çš„é€Ÿåº¦æœå‘
                 rb.velocity = Vector2.Reflect(rb.velocity, normal);
 
-                // ´òÓ¡·¨ÏòÁ¿
+                // æ‰“å°æ³•å‘é‡
                 Debug.Log("Collision normal: " + normal);
             }
         }
@@ -67,6 +61,36 @@ public class LevelWallBase : MonoBehaviour
         {
             GameManager.Instance.updateLevelCheckpoint(stage);
         }
+    }
+    public static Vector2 FindClosestDirection(Vector2 inputNormal)
+    {
+        // å®šä¹‰å…«ä¸ªæ–¹å‘å‘é‡
+        Vector2[] directions = new Vector2[]
+        {
+            Vector2.up,       // ä¸Š
+            Vector2.down,     // ä¸‹
+            Vector2.left,     // å·¦
+            Vector2.right,    // å³
+            new Vector2(-1, 1).normalized,   // å·¦ä¸Š
+            new Vector2(-1, -1).normalized,  // å·¦ä¸‹
+            new Vector2(1, 1).normalized,    // å³ä¸Š
+            new Vector2(1, -1).normalized    // å³ä¸‹
+        };
+
+        Vector2 closestDir = directions[0];
+        float smallestAngle = Vector2.Angle(inputNormal, closestDir);
+
+        foreach (Vector2 dir in directions)
+        {
+            float angle = Vector2.Angle(inputNormal, dir);
+            if (angle < smallestAngle)
+            {
+                smallestAngle = angle;
+                closestDir = dir;
+            }
+        }
+
+        return closestDir;
     }
 }
 public enum WallType
@@ -77,5 +101,6 @@ public enum WallType
     spike,
     corner
 }
+
 
 
