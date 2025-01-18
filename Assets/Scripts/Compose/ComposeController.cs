@@ -115,7 +115,7 @@ public class ComposeController : Singleton<ComposeController>
 
     public void StartActualMove()
     {
-        bubbleShip.StartActualMove();
+        bubbleShip.ActualMove(true);
         hideOnStart.ForEach(go => go.SetActive(false));
         showOnStart.ForEach(go => go.SetActive(true));
     }
@@ -148,5 +148,8 @@ public class ComposeController : Singleton<ComposeController>
         ReadLiquidSet(GameManager.Instance.LevelStage);
         ResetCompose();
         bubbleShip.transform.position = originPosition.position;
+        bubbleShip.ActualMove(false);
+        hideOnStart.ForEach(go => go.SetActive(true));
+        showOnStart.ForEach(go => go.SetActive(false));
     }
 }

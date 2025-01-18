@@ -48,4 +48,9 @@ public class ComposeBubbleBase : MonoBehaviour
         OnMouseControl = false;
         Destroy(Rigidbody2D);
     }
+
+    public virtual void Explode()
+    {
+        
+    }
 }

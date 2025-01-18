@@ -42,7 +42,10 @@ public class BubbleShip : MonoBehaviour
     
     public void RotateShip()
     {
-        _rigidbody.DORotate(90, 1f).SetEase(Ease.Linear);
+        _rigidbody.DORotate(_rigidbody.rotation + 90, 1f).SetEase(Ease.InSine).OnComplete((() =>
+        {
+            _rigidbody.totalTorque = 0;
+        }));
     }
 
     public void ReceiveBubble(ComposeBubbleBase newBubble)
@@ -102,13 +105,15 @@ public class BubbleShip : MonoBehaviour
         {
             onMouseControl = false;
             _rigidbody.velocity = Vector2.zero;
+            _rigidbody.totalTorque = 0;
         }
     }
 
-    public void StartActualMove()
+    public void ActualMove(bool move)
     {
-        onMove = true;
+        onMove = move;
         _rigidbody.velocity = Vector2.zero;
+        _rigidbody.totalTorque = 0;
     }
 
 
@@ -116,7 +121,7 @@ public class BubbleShip : MonoBehaviour
     {
         for (int i = 0; i < components.Count; i++)
         {
-            Destroy(components[i].gameObject);
+            Destroy(components[i]?.gameObject);
         }
         components.Clear();
     }

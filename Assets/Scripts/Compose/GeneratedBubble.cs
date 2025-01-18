@@ -40,7 +40,7 @@ public class GeneratedBubble : ComposeBubbleBase
         }
     }
     
-    public void Explode()
+    public override void Explode()
     {
         Debug.Log("Explode");
         data.ExplodeEffect.Effect(bubbleShip, transform.position, size);
