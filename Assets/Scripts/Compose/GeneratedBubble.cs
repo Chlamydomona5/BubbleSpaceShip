@@ -40,6 +40,7 @@ public class GeneratedBubble : ComposeBubbleBase
             bubbleShip.ExplodeBubbleAt(this);
         }
         
-        DestroyImmediate(gameObject);
+        if(gameObject)
+            DestroyImmediate(gameObject);
     }
 }
