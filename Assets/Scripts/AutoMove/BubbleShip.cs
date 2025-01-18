@@ -15,7 +15,6 @@ public class BubbleShip : MonoBehaviour
     public bool onMove;
     
     private Rigidbody2D _rigidbody;
-    [SerializeField] private List<GameObject> cameras;
 
     [SerializeField] private float targetYSpeed = 2f;
     [SerializeField] private float normalAccerlation = 1f;
@@ -81,6 +80,5 @@ public class BubbleShip : MonoBehaviour
     public void StartActualMove()
     {
         onMove = true;
-        cameras.ForEach(c => c.SetActive(true));
     }
 }

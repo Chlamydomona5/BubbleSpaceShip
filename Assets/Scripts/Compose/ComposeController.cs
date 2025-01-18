@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -19,6 +20,9 @@ public class ComposeController : Singleton<ComposeController>
     [SerializeField] private BubbleShip bubbleShip;
     [SerializeField, ReadOnly] private GeneratedBubble currentInitingBubble; 
     public LiquidBottle currentTouchingLiquidBottle;
+
+    [SerializeField] private List<GameObject> hideOnStart;
+    [SerializeField] private List<GameObject> showOnStart;
     
     private void Update()
     {
@@ -94,5 +98,7 @@ public class ComposeController : Singleton<ComposeController>
     public void StartActualMove()
     {
         bubbleShip.StartActualMove();
+        hideOnStart.ForEach(go => go.SetActive(false));
+        showOnStart.ForEach(go => go.SetActive(true));
     }
 }
