@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelWallBase : MonoBehaviour
@@ -10,7 +11,10 @@ public class LevelWallBase : MonoBehaviour
     public int stage;
     private bool disabled = false;
 
-
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.gameObject.layer != LayerMask.NameToLayer("Bubble"))
@@ -41,7 +45,8 @@ public class LevelWallBase : MonoBehaviour
         }
         else if(wallType == WallType.spike)
         {
-            //todo: 戳爆最靠近的气泡
+            //todo: 戳爆最靠近的气泡,
+            collision.collider.gameObject.GetComponent<GeneratedBubble>().Explode();
         }
         else if (wallType == WallType.corner)
         {
@@ -60,6 +65,7 @@ public class LevelWallBase : MonoBehaviour
         else if (wallType == WallType.checkPoint) 
         {
             GameManager.Instance.updateLevelCheckpoint(stage);
+            Destroy(gameObject);
         }
     }
     public static Vector2 FindClosestDirection(Vector2 inputNormal)

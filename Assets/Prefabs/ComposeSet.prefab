@@ -720,6 +720,9 @@ MonoBehaviour:
   allBubbles: []
   levelSets:
   - {fileID: 11400000, guid: 9713862caf0c0924cbd1225261dcd444, type: 2}
+  - {fileID: 11400000, guid: ad875f7558b75db4cadc078decdc77f9, type: 2}
+  - {fileID: 11400000, guid: 1cf8bd6f03d22394eb9b78bbc5ee262b, type: 2}
+  - {fileID: 11400000, guid: 078c0846b7c9dc94c843caf2190f623f, type: 2}
   originPosition: {fileID: 4031786095947901913}
 --- !u!1 &4628303130637527191
 GameObject:
