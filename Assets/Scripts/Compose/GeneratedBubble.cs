@@ -7,18 +7,29 @@ public class GeneratedBubble : ComposeBubbleBase
     [SerializeField] private BubbleData data;
     public BubbleData Data => data;
     [SerializeField, ReadOnly] private float size;
-    [SerializeField] private Vector2 releaseForce;
-    
+
     public void Init(BubbleData data, float size)
     {
         this.data = data;
-        if(data.sprite)
+        if (data.sprite)
             SpriteRenderer.sprite = data.sprite;
         SpriteRenderer.color = data.color;
-        this.size = size;
         transform.localScale = Vector3.one * size;
+
+        // 获取图片的原始大小
+        Sprite sprite = SpriteRenderer.sprite;
+        if (sprite == null) return;
+
+        Vector2 boundSize = sprite.bounds.size;
+
+        // 计算缩放比例
+        float scaleX = 1f / boundSize.x;
+        float scaleY = 1f / boundSize.y;
+
+        // 应用缩放比例，以使图片适应1x1大小
+        SpriteRenderer.transform.localScale = new Vector3(scaleX, scaleY, 1f);
     }
-    
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bubble"))

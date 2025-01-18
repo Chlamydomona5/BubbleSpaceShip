@@ -27,5 +27,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  sprite: {fileID: 0}
-  color: {r: 0.99513066, g: 0.7327044, b: 1, a: 1}
+  sprite: {fileID: -634298528, guid: a294ee37c5256b3418fba0c7657946c5, type: 3}
+  color: {r: 1, g: 1, b: 1, a: 1}

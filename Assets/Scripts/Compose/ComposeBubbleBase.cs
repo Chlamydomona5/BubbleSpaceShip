@@ -21,7 +21,7 @@ public class ComposeBubbleBase : MonoBehaviour
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Collider2D = GetComponent<Collider2D>();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
