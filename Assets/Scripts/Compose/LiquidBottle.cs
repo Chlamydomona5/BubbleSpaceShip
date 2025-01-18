@@ -39,4 +39,10 @@ public class LiquidBottle : MonoBehaviour
     {
         _currentLiquidVolume = maxLiquidVolume;
     }
+
+    public void Read((BubbleData, float) setLiquidBottle)
+    {
+        data = setLiquidBottle.Item1;
+        maxLiquidVolume = setLiquidBottle.Item2;
+    }
 }

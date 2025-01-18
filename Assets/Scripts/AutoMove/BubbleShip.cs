@@ -95,6 +95,8 @@ public class BubbleShip : MonoBehaviour
             }
         }
     }
+    
+    
 
     private void OnMouseUp()
     {

@@ -24,6 +24,11 @@ MonoBehaviour:
     - Name: ExplodeEffect
       Entry: 7
       Data: 0|PushEffect, Assembly-CSharp
+    - Name: Factor
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
+  sprite: {fileID: 0}
+  color: {r: 1, g: 0.6761006, b: 0.6761006, a: 1}

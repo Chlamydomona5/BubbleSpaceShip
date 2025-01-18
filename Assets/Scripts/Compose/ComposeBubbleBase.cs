@@ -11,7 +11,8 @@ public class ComposeBubbleBase : MonoBehaviour
     protected bool OnMouseControl;
     protected Rigidbody2D Rigidbody2D;
     protected Collider2D Collider2D;
-
+    protected SpriteRenderer SpriteRenderer;
+    
     [SerializeField, ReadOnly] protected BubbleShip bubbleShip;
     public BubbleShip BubbleShip => bubbleShip;
     
@@ -19,6 +20,7 @@ public class ComposeBubbleBase : MonoBehaviour
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Collider2D = GetComponent<Collider2D>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()

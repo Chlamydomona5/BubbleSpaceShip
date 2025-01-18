@@ -10,6 +10,9 @@ public class GeneratedBubble : ComposeBubbleBase
     public void Init(BubbleData data)
     {
         this.data = data;
+        if(data.sprite)
+            SpriteRenderer.sprite = data.sprite;
+        SpriteRenderer.color = data.color;
     }
     
     public void Blow(float delta)

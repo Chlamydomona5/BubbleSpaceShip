@@ -119,4 +119,22 @@ public class ComposeController : Singleton<ComposeController>
         }
         allBubbles.Clear();
     }
+
+    public void ReadLiquidSet(int level)
+    {
+        liquidBottles.ForEach(x => x.gameObject.SetActive(false));
+        
+        var set = levelSets[level];
+        for (int i = 0; i < set.LiquidBottles.Count; i++)
+        {
+            liquidBottles[i].gameObject.SetActive(true);
+            liquidBottles[i].Read(set.LiquidBottles[i]);
+        }
+    }
+
+    public void ResetGmae()
+    {
+        ReadLiquidSet(GameManager.Instance.LevelStage);
+        ResetCompose();
+    }
 }

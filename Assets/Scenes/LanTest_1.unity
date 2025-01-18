@@ -339,6 +339,14 @@ PrefabInstance:
       value: ComposeSet
       objectReference: {fileID: 0}
     - target: {fileID: 4092316275747160249, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: levelSets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092316275747160249, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: levelSets.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9713862caf0c0924cbd1225261dcd444, type: 2}
+    - target: {fileID: 4092316275747160249, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
       propertyPath: liquidBottles.Array.size
       value: 5
       objectReference: {fileID: 0}

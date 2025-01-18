@@ -5,6 +5,8 @@ using UnityEngine;
 public class BubbleData : SerializedScriptableObject
 {
     public ExplodeEffect ExplodeEffect;
+    public Sprite sprite;
+    public Color color;
 }
 
 public abstract class ExplodeEffect
