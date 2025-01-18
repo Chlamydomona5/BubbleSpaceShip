@@ -196,4 +196,9 @@ public class BubbleShip : MonoBehaviour
     {
         _rigidbody.velocity = Vector2.zero;
     }
+
+    public void MakeSureSpeedDontChange()
+    {
+        _rigidbody.velocity = previousVelocity;
+    }
 }

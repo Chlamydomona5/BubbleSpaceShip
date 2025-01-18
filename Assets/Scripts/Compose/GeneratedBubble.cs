@@ -8,6 +8,12 @@ public class GeneratedBubble : ComposeBubbleBase
     public BubbleData Data => data;
     [SerializeField, ReadOnly] private float size;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        if(data) Init(data, size);
+    }
+
     public void Init(BubbleData data, float size)
     {
         this.data = data;
@@ -39,6 +45,7 @@ public class GeneratedBubble : ComposeBubbleBase
             {
                 bubbleShip = other.gameObject.GetComponentInParent<BubbleShip>();
                 bubbleShip.ReceiveBubble(this, other);
+                bubbleShip.MakeSureSpeedDontChange();
             }
         }
     }

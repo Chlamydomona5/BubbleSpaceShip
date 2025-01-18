@@ -17,7 +17,7 @@ public class ComposeBubbleBase : MonoBehaviour
     [SerializeField, ReadOnly] protected BubbleShip bubbleShip;
     public BubbleShip BubbleShip => bubbleShip;
     
-    private void Awake()
+    protected virtual void Awake()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Collider2D = GetComponent<Collider2D>();
