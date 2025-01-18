@@ -47,7 +47,7 @@ public class BubbleShip : MonoBehaviour
     public void RotateShip()
     {
         // Dotween rotate 90
-        transform.DORotate(new Vector3(0, 0, transform.eulerAngles.z + 90), 0.5f).SetEase(Ease.InSine);
+        transform.DOBlendableRotateBy(new Vector3(0, 0, 90), 0.5f).SetEase(Ease.InSine);
     }
 
     public void ReceiveBubble(ComposeBubbleBase newBubble)

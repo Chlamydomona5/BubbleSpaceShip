@@ -41,3 +41,10 @@ public class GunEffect : ExplodeEffect
         bullet.Init((effectPos - (Vector2)ship.transform.position).normalized);
     }
 }
+
+public class FrictionEffect : ExplodeEffect
+{
+    public override void Effect(BubbleShip ship, Vector2 effectPos, float amount)
+    {
+    }
+}
