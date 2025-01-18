@@ -46,10 +46,8 @@ public class BubbleShip : MonoBehaviour
     
     public void RotateShip()
     {
-        _rigidbody.DORotate(_rigidbody.rotation + 90, 1f).SetEase(Ease.InSine).OnComplete((() =>
-        {
-            _rigidbody.totalTorque = 0;
-        }));
+        // Dotween rotate 90
+        transform.DORotate(new Vector3(0, 0, transform.eulerAngles.z + 90), 0.5f).SetEase(Ease.InSine);
     }
 
     public void ReceiveBubble(ComposeBubbleBase newBubble)
