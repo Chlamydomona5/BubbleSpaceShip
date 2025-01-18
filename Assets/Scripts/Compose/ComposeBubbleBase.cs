@@ -6,14 +6,18 @@ using UnityEngine.EventSystems;
 
 public class ComposeBubbleBase : MonoBehaviour
 {
+    [SerializeField] private BubbleData data;
+    
     private bool _onMouseControl;
     private Rigidbody2D _rigidbody2D;
     private Collider2D _collider2D;
 
-    private void Awake()
+    public void Init(BubbleData data)
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider2D = GetComponent<Collider2D>();
+
+        this.data = data;
     }
 
     private void Update()
@@ -24,7 +28,6 @@ public class ComposeBubbleBase : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         }
     }
-
 
     private void OnMouseDown()
     {

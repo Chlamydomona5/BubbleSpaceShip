@@ -1,13 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-public class ComposeController : MonoBehaviour
+public class ComposeController : Singleton<ComposeController>
 {
     public float crabSpeed = 1f;
 
     [SerializeField] private GameObject crab;
     [SerializeField] private GameObject craw;
 
+    [SerializeField] private ComposeBubbleBase bubblePrefab;
+    [SerializeField] private ComposeBubbleBase currentInitingBubble;
+    [SerializeField] private LiquidBottle currentTouchingLiquidBottle;
+    
     private void Update()
     {
         var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -27,5 +31,17 @@ public class ComposeController : MonoBehaviour
                 hit.collider.GetComponent<ComposeBubbleBase>().OnMouseControl(true);
             }
         }*/
+    }
+
+    public void GenerateBubbleAt(BubbleData data, Vector2 pos)
+    {
+        var bubble = Instantiate(bubblePrefab, pos, Quaternion.identity);
+        bubble.Init(data);
+        currentInitingBubble = bubble;
+    }
+
+    public void BlowCurrentBubble()
+    {
+        
     }
 }
