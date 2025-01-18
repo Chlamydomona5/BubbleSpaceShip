@@ -22,7 +22,10 @@ public class BubbleShip : MonoBehaviour
     [SerializeField] public float pushForceFactor = 10f;
 
     [SerializeField] private Camera shipCamera;
-    
+
+    public Vector2 previousVelocity;
+
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -37,7 +40,7 @@ public class BubbleShip : MonoBehaviour
     
     public void AddForceToShip(Vector2 force)
     {
-        _rigidbody.AddForce(force);
+        _rigidbody.AddForce (force,ForceMode2D.Force);
     }
     
     public void RotateShip()
@@ -75,6 +78,8 @@ public class BubbleShip : MonoBehaviour
             var deltaSpeed = targetSpeed - currentSpeed;
             _rigidbody.AddForce(deltaSpeed * normalAccerlation);
         }
+
+        previousVelocity = GetComponent<Rigidbody2D>().velocity;
     }
 
     private void OnMouseDown()
