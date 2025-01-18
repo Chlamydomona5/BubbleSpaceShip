@@ -13,9 +13,11 @@ public class ComposeController : Singleton<ComposeController>
 
     [SerializeField] private GameObject crab;
     [SerializeField] private GameObject craw;
+    [SerializeField] private LineRenderer lineRenderer;
 
-    [SerializeField] private ComposeBubbleBase bubblePrefab;
-    [SerializeField, ReadOnly] private ComposeBubbleBase currentInitingBubble; 
+    [SerializeField] private GeneratedBubble bubblePrefab;
+    [SerializeField] private BubbleShip bubbleShipPrefab;
+    [SerializeField, ReadOnly] private GeneratedBubble currentInitingBubble; 
     public LiquidBottle currentTouchingLiquidBottle;
     
     private void Update()
@@ -25,6 +27,13 @@ public class ComposeController : Singleton<ComposeController>
 
         // Craw Move
         craw.transform.position = mouseWorldPosition;
+        // Adjust Craw Angle align to crab
+        var direction = (crab.transform.position - craw.transform.position).normalized;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        craw.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        // Adjust Line
+        lineRenderer.SetPosition(0, crab.transform.position);
+        lineRenderer.SetPosition(1, craw.transform.position);
         // GenerateBubble
         if (Input.GetKey(KeyCode.Space))
         {
@@ -49,8 +58,8 @@ public class ComposeController : Singleton<ComposeController>
         else
         {
             // Crab Move
-            if(Input.GetKey(KeyCode.A)) crab.transform.position += Vector3.left * crabSpeed * Time.deltaTime;
-            if(Input.GetKey(KeyCode.D)) crab.transform.position += Vector3.right * crabSpeed * Time.deltaTime;
+            if(Input.GetKey(KeyCode.A)) crab.transform.position += Vector3.left * (crabSpeed * Time.deltaTime);
+            if(Input.GetKey(KeyCode.D)) crab.transform.position += Vector3.right * (crabSpeed * Time.deltaTime);
         }
     }
     
