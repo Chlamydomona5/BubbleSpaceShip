@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     
     public void LoadNextLevel()
     {
-        if (UnityEngine.SceneManagement.SceneManager.sceneCount ==
+        if (UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings ==
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1)
         {
             Debug.Log("Win");
