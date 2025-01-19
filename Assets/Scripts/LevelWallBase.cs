@@ -42,7 +42,7 @@ public class LevelWallBase : MonoBehaviour
                     Vector2 normal = -contact.normal;
                     normal = FindClosestDirection(normal);
                     // 根据法向量朝向改变物体的速度朝向
-                    normal = Vector2.Reflect(bs.previousVelocity, normal) * (1f / Time.fixedDeltaTime);
+                    normal = Vector2.Reflect(bs.previousVelocity, normal) * (1f / Time.fixedDeltaTime)*0.99f;
                     bs.AddForceToShip(normal);
                 }
             }
