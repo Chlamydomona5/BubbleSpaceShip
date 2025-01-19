@@ -997,14 +997,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895314121277086147, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: -1171425458, guid: 865036eabee7643479d5b56d31655836, type: 3}
-    - target: {fileID: 1895314121277086147, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3910016813579541571, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
       propertyPath: m_Name
       value: ComposeSet
