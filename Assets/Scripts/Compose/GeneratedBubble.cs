@@ -1,12 +1,17 @@
-﻿using Sirenix.OdinInspector;
+﻿using DG.Tweening;
+using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
+using Sequence = DG.Tweening.Sequence;
 
 public class GeneratedBubble : ComposeBubbleBase
 {
     [SerializeField] private BubbleData data;
     public BubbleData Data => data;
     [SerializeField] private float size;
+
+    [SerializeField] private Animation explodeAnimation;
+    private Sequence _destroySequence;
 
     protected override void Awake()
     {
@@ -55,6 +60,19 @@ public class GeneratedBubble : ComposeBubbleBase
         if(!this || !gameObject) return;
 
         Debug.Log("Explode");
+        var originalScale = SpriteRenderer.transform.localScale;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(SpriteRenderer.transform.DOScale(originalScale * 0.75f, 0.1f));
+        sequence.Append(SpriteRenderer.transform.DOScale(originalScale * 1.2f, 0.1f));
+        sequence.AppendCallback(() =>
+        {
+            DestroyImmediate(SpriteRenderer);
+            explodeAnimation.gameObject.SetActive(true);
+            explodeAnimation.Play();
+        });
+        sequence.AppendInterval(0.1f);
+        sequence.AppendCallback((() => DestroyImmediate(gameObject)));
+        
         data.ExplodeEffect.Effect(bubbleShip, transform.position, size);
         if (checkConnection)
         {
@@ -64,6 +82,5 @@ public class GeneratedBubble : ComposeBubbleBase
         // ???
         if(!this || !gameObject) return;
 
-        DestroyImmediate(gameObject);
     }
 }
