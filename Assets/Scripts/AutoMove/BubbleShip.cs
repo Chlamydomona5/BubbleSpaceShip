@@ -216,6 +216,6 @@ public class BubbleShip : MonoBehaviour
         crabBody.gameObject.SetActive(false);
         crabBodyCry.gameObject.SetActive(true);
         // Endless Rotate
-        crabBodyCry.transform.DORotate(new Vector3(0, 0, 360), 1f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
+        crabBodyCry.transform.DORotate(new Vector3(0, 0, 360), .8f, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental);
     }
 }
