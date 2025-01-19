@@ -8,7 +8,13 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        BubbleShip bs = collision.gameObject.GetComponentInParent<BubbleShip>();
+        if(bs != null)
+        {
+            onHit();
+        }
     }
+
     public void onHit()
     {
         door.open();

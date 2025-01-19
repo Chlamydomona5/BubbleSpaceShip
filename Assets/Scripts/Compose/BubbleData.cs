@@ -39,7 +39,7 @@ public class GunEffect : ExplodeEffect
     {
         var direction = (Vector2)ship.transform.position - effectPos;
         var bullet = GameObject.Instantiate(BulletPrefab, effectPos, Quaternion.identity);
-        bullet.Init(-direction.normalized * 20);
+        bullet.Init(-direction.normalized * 20  );
     }
 }
 
