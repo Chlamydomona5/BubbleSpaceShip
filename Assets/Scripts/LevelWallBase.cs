@@ -40,10 +40,11 @@ public class LevelWallBase : MonoBehaviour
                 foreach (ContactPoint2D contact in collision.contacts)
                 {
                     Vector2 normal = -contact.normal;
-                    normal = FindClosestDirection(normal);
+                    normal = FindClosestDirection(normal).normalized;
                     // 根据法向量朝向改变物体的速度朝向
-                    normal = Vector2.Reflect(bs.previousVelocity, normal) * (1f / Time.fixedDeltaTime)*0.99f;
-                    bs.AddForceToShip(normal);
+                    normal = Vector2.Reflect(bs.previousVelocity, normal);
+                    bs.SetVelocity(normal);
+                    return;
                 }
             }
         }
@@ -95,7 +96,8 @@ public enum WallType
     bounce,
     checkPoint,
     spike,
-    corner
+    corner,
+    key
 }
 
 
