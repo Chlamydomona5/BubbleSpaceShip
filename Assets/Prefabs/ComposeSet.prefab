@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 19726424999657257}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.09, y: -23.13, z: 10.83118}
+  m_LocalPosition: {x: 13.67, y: -21.86, z: 10.83118}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 205999718110924118}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.38, y: -15.47, z: -10}
+  m_LocalPosition: {x: 3.03, y: -13.3, z: -10}
   m_LocalScale: {x: 1.2239, y: 1.2239, z: 1.2239}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -754,7 +754,6 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: b15f58e64b76880459a402eb58d5cdf6, type: 2}
-    - {fileID: 11400000, guid: a1d22593cdab4814d8b4fbec662f738a, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -766,7 +765,7 @@ MonoBehaviour:
         Assembly-CSharp],[System.Single, mscorlib]], mscorlib]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: System.ValueTuple`2[[BubbleData, Assembly-CSharp],[System.Single, mscorlib]],
@@ -786,10 +785,23 @@ MonoBehaviour:
         mscorlib
     - Name: Item1
       Entry: 10
-      Data: 1
+      Data: 0
     - Name: Item2
       Entry: 4
-      Data: 1.1
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: System.ValueTuple`2[[BubbleData, Assembly-CSharp],[System.Single, mscorlib]],
+        mscorlib
+    - Name: Item1
+      Entry: 10
+      Data: 0
+    - Name: Item2
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -848,7 +860,7 @@ Transform:
   m_GameObject: {fileID: 4348876820359171657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.21, y: -10.04, z: -10}
+  m_LocalPosition: {x: 6.63, y: -8.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -889,7 +901,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 9.8
+  orthographic size: 8.42
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1429,7 +1441,7 @@ Transform:
   m_GameObject: {fileID: 5846068412339329170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.17, y: -16.21, z: 0}
+  m_LocalPosition: {x: 3.97, y: -14.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1460,7 +1472,7 @@ Transform:
   m_GameObject: {fileID: 6500731532222390282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4, y: -16.39, z: 0}
+  m_LocalPosition: {x: -0.05, y: -13.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1704,7 +1716,7 @@ Transform:
   m_GameObject: {fileID: 7456580832520656727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.38, y: -15.47, z: -10}
+  m_LocalPosition: {x: 3.03, y: -13.3, z: -10}
   m_LocalScale: {x: 1.2239, y: 1.2239, z: 1.2239}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1745,7 +1757,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.79
+  orthographic size: 3.84
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2004,7 +2016,7 @@ Transform:
   m_GameObject: {fileID: 8345115292007019327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.28, y: -17.77, z: 10.83118}
+  m_LocalPosition: {x: 0.46, y: -14.69, z: 10.83118}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2196,8 +2208,8 @@ Transform:
   m_GameObject: {fileID: 8623465770063820888}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.98, y: -6.28, z: 0}
-  m_LocalScale: {x: 0.36, y: 0.36, z: 0.36}
+  m_LocalPosition: {x: -5.22, y: -5.22, z: 0}
+  m_LocalScale: {x: 0.446965, y: 0.446965, z: 0.446965}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5792037832006751904}
@@ -2286,7 +2298,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.24643612, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2297,7 +2309,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 3}
+  m_Size: {x: 13.59091, y: 3}
   m_EdgeRadius: 0
 --- !u!1 &8706646676814370470
 GameObject:
@@ -2493,13 +2505,21 @@ PrefabInstance:
       propertyPath: crabBodyCry
       value: 
       objectReference: {fileID: 3991583514888437374}
+    - target: {fileID: 4967601749281116845, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
+      propertyPath: targetYSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967601749281116845, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
+      propertyPath: normalAccerlation
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6598898237409104628, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.56
+      value: -31.34
       objectReference: {fileID: 0}
     - target: {fileID: 6598898237409104628, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.9
+      value: -7.32
       objectReference: {fileID: 0}
     - target: {fileID: 6598898237409104628, guid: 95b3ad8d21bc1b149aaaa81a50263b29, type: 3}
       propertyPath: m_LocalPosition.z
