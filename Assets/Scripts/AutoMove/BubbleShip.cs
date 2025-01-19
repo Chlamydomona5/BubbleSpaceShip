@@ -104,7 +104,7 @@ public class BubbleShip : MonoBehaviour
     public void RotateShip()
     {
         // Dotween rotate 90
-        transform.DOBlendableRotateBy(new Vector3(0, 0, -180), 2f).SetEase(Ease.InSine);
+        transform.DOBlendableRotateBy(new Vector3(0, 0, -180), 3f).SetEase(Ease.InSine);
     }
 
     public void ReceiveBubble(ComposeBubbleBase newBubble, Collision2D other)
@@ -194,6 +194,7 @@ public class BubbleShip : MonoBehaviour
         onMove = move;
         _rigidbody.velocity = Vector2.zero;
         _rigidbody.totalTorque = 0;
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void ResetShip()
