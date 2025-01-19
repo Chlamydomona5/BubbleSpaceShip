@@ -83,4 +83,14 @@ public class GeneratedBubble : ComposeBubbleBase
         if(!this || !gameObject) return;
 
     }
+
+    public void Selected()
+    {
+        SpriteRenderer?.transform.DOScale(SpriteRenderer.transform.localScale * 1.2f, 0.1f);
+    }
+
+    public void UnSelected()
+    {
+        SpriteRenderer?.transform.DOScale(SpriteRenderer.transform.localScale / 1.2f, 0.1f);
+    }
 }

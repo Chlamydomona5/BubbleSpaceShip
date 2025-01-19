@@ -30,6 +30,8 @@ public class BubbleShip : MonoBehaviour
     [SerializeField] private SpriteRenderer crabBody;
     [SerializeField] private SpriteRenderer crabBodyCry;
 
+    private GeneratedBubble _currentSelectedBubble;
+
 
     private void Awake()
     {
@@ -129,7 +131,7 @@ public class BubbleShip : MonoBehaviour
             }
         }
     }
-    
+
     private void Update()
     {
         if (onMouseControl)
@@ -138,6 +140,31 @@ public class BubbleShip : MonoBehaviour
             pos = new Vector3(pos.x, pos.y, 0);
             _rigidbody.MovePosition(pos + (Vector3)_mouseRelativePosition);
         }
+
+        if (onMove)
+        {
+            //Judge which component this click is on
+            var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            worldPos = new Vector3(worldPos.x, worldPos.y, 0);
+            var hit = Physics2D.Raycast(worldPos, Vector2.up, .1f, LayerMask.GetMask("Bubble"));
+            Debug.DrawLine(worldPos, worldPos + Vector3.up * 1f, Color.red, 1f);
+            if (hit.collider)
+            {
+                var bubble = hit.collider.GetComponent<GeneratedBubble>();
+                if (_currentSelectedBubble != bubble)
+                {
+                    _currentSelectedBubble?.UnSelected();
+                    _currentSelectedBubble = bubble;
+                    _currentSelectedBubble?.Selected();
+                }
+            }
+            else
+            {
+                _currentSelectedBubble?.UnSelected();
+                _currentSelectedBubble = null;
+            }
+        }
+
     }
 
     private void FixedUpdate()
