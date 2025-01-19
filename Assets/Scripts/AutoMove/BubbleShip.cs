@@ -89,6 +89,12 @@ public class BubbleShip : MonoBehaviour
         Debug.Log("ADD FORCE " + force);
         _rigidbody.AddForce(force, ForceMode2D.Force);
     }
+    
+    public void AddForceToShipImpulse(Vector2 force)
+    {
+        Debug.Log("ADD FORCE " + force);
+        _rigidbody.AddForce(force, ForceMode2D.Impulse);
+    }
 
     public void RotateShip()
     {
