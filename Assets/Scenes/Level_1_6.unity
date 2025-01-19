@@ -2270,6 +2270,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 787333706687970139, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 787333706687970139, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dadcfe783142b5c499af93564d6be893, type: 2}
     - target: {fileID: 1603202239285764614, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.3291693
@@ -2447,18 +2455,6 @@ PrefabInstance:
     - target: {fileID: 6763279921543914342, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
       propertyPath: m_LocalPosition.y
       value: -21.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3809,11 +3805,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8695363411633320937, guid: 384a22e8899445e428657a067eacf72b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.27
+      value: 12.29
       objectReference: {fileID: 0}
     - target: {fileID: 8695363411633320937, guid: 384a22e8899445e428657a067eacf72b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.05
+      value: 10.19
       objectReference: {fileID: 0}
     - target: {fileID: 8695363411633320937, guid: 384a22e8899445e428657a067eacf72b, type: 3}
       propertyPath: m_LocalPosition.z
