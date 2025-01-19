@@ -1801,6 +1801,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2098034041502409617, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_Size.x
+      value: 14.059343
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098034041502409617, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_Size.y
+      value: 2.731614
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098034041502409617, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.18451786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098034041502409617, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.13419294
+      objectReference: {fileID: 0}
     - target: {fileID: 3910016813579541571, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
       propertyPath: m_Name
       value: ComposeSet
@@ -1872,6 +1888,14 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: b15f58e64b76880459a402eb58d5cdf6, type: 2}
+    - target: {fileID: 5679995648195033419, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679995648195033419, guid: f326ff8c4a7cafa4fad6144e6d09af03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
