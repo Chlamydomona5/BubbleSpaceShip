@@ -165,6 +165,7 @@ public class BubbleShip : MonoBehaviour
             }
         }
 
+        Time.timeScale = _currentSelectedBubble ? .5f : 1f;
     }
 
     private void FixedUpdate()

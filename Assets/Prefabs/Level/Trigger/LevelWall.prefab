@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8479509773588466633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.27, y: -0.07, z: 0.07969478}
   m_LocalScale: {x: 0.95818007, y: 14.981193, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50,7 +50,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 165b16bd129feec4dba4f25ed222d4a1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -70,7 +70,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 8479509773588466633}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 165b16bd129feec4dba4f25ed222d4a1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -105,10 +105,34 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
+    - - {x: -5.6532583, y: -0.18570694}
+      - {x: -5.5081096, y: -0.5072618}
+      - {x: -1.3625464, y: -0.71748024}
+      - {x: -0.5645598, y: -0.7180166}
+      - {x: 16.209364, y: -0.7024466}
+      - {x: 19.262344, y: -0.46704835}
+      - {x: 13.540214, y: 0.11337325}
+      - {x: 14.34215, y: 0.48074213}
+      - {x: 8.280569, y: 0.7263075}
+      - {x: 1.3151197, y: 0.74855304}
+      - {x: 1.522227, y: 0.23048237}
+      - {x: 3.3446727, y: -0.17866252}
+      - {x: 4.269712, y: -0.18001324}
+      - {x: 4.3088284, y: 0.33382}
+      - {x: 2.3777478, y: 0.33346704}
+      - {x: 2.3468833, y: 0.6205182}
+      - {x: 7.6222453, y: 0.6214601}
+      - {x: 7.624857, y: 0.5424544}
+      - {x: 11.809062, y: 0.2776181}
+      - {x: 9.700999, y: 0.14259976}
+      - {x: 6.5659714, y: 0.34390017}
+      - {x: 5.674037, y: 0.3441856}
+      - {x: 5.6657925, y: -0.19086424}
+      - {x: 10.72679, y: -0.19106515}
+      - {x: 14.938474, y: -0.19143185}
+      - {x: 14.913723, y: -0.58979356}
+      - {x: -0.76017547, y: -0.5900518}
+      - {x: -0.77993214, y: -0.19216414}
       - {x: 0.9510565, y: 0.30901712}
   m_UseDelaunayMesh: 0
 --- !u!114 &-7261300405806790363
@@ -127,3 +151,4 @@ MonoBehaviour:
   NormalVector: {x: 0, y: 0}
   bounceFactor: 1
   stage: 0
+  disableRender: 1

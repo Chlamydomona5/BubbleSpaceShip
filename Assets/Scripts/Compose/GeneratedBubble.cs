@@ -61,6 +61,7 @@ public class GeneratedBubble : ComposeBubbleBase
 
         Debug.Log("Explode");
         var originalScale = SpriteRenderer.transform.localScale;
+        DestroyImmediate(Collider2D);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(SpriteRenderer.transform.DOScale(originalScale * 0.75f, 0.1f));
         sequence.Append(SpriteRenderer.transform.DOScale(originalScale * 1.3f, 0.1f));
@@ -86,11 +87,13 @@ public class GeneratedBubble : ComposeBubbleBase
 
     public void Selected()
     {
-        SpriteRenderer?.transform.DOScale(SpriteRenderer.transform.localScale * 1.2f, 0.1f);
+        if(SpriteRenderer)
+            SpriteRenderer.transform.DOScale(SpriteRenderer.transform.localScale * 1.2f, 0.1f);
     }
 
     public void UnSelected()
     {
-        SpriteRenderer?.transform.DOScale(SpriteRenderer.transform.localScale / 1.2f, 0.1f);
+        if(SpriteRenderer)
+            SpriteRenderer.transform.DOScale(SpriteRenderer.transform.localScale / 1.2f, 0.1f);
     }
 }
