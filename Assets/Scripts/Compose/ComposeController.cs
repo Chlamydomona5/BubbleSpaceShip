@@ -63,7 +63,7 @@ public class ComposeController : Singleton<ComposeController>
         craw.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
         // Adjust Line
         lineRenderer.pos0 = crab.transform.position + Vector3.right / 2f;
-        lineRenderer.pos1 = craw.transform.position - (craw.transform.position - crab.transform.position).normalized / 2f;
+        lineRenderer.pos1 = craw.transform.position - (craw.transform.position - crab.transform.position).normalized * 0.9f;
 
         if (Input.GetKeyDown(KeyCode.R))
         {

@@ -194,7 +194,7 @@ public class BubbleShip : MonoBehaviour
         onMove = move;
         _rigidbody.velocity = Vector2.zero;
         _rigidbody.totalTorque = 0;
-        _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        _rigidbody.constraints = RigidbodyConstraints2D.None;
     }
 
     public void ResetShip()
