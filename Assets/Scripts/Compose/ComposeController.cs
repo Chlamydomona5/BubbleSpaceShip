@@ -11,7 +11,7 @@ public class ComposeController : Singleton<ComposeController>
     [SerializeField] private GameObject craw;
     [SerializeField] private Transform crawOpen;
     [SerializeField] private Transform crawClose;
-    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private LineDrawer lineRenderer;
 
     [SerializeField] private GeneratedBubble bubblePrefab;
     [SerializeField] private BubbleShip bubbleShip;
@@ -62,8 +62,8 @@ public class ComposeController : Singleton<ComposeController>
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         craw.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
         // Adjust Line
-        lineRenderer.SetPosition(0, crab.transform.position + Vector3.right / 2f);
-        lineRenderer.SetPosition(1, craw.transform.position);
+        lineRenderer.pos0 = crab.transform.position + Vector3.right / 2f;
+        lineRenderer.pos1 = craw.transform.position - (craw.transform.position - crab.transform.position).normalized / 2f;
 
         if (Input.GetKeyDown(KeyCode.R))
         {
