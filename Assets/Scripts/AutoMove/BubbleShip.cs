@@ -23,9 +23,12 @@ public class BubbleShip : MonoBehaviour
     [SerializeField] private float normalAccerlation = 1f;
     [SerializeField] public float pushForceFactor = 10f;
 
-    [SerializeField] private Camera shipCamera;
+    [SerializeField] private CinemachineVirtualCamera shipCamera;
 
     public Vector2 previousVelocity;
+
+    [SerializeField] private SpriteRenderer crabBody;
+    [SerializeField] private SpriteRenderer crabBodyCry;
 
 
     private void Awake()
@@ -150,7 +153,7 @@ public class BubbleShip : MonoBehaviour
         else
         {
             //Judge which component this click is on
-            var pos = shipCamera.ScreenToWorldPoint(Input.mousePosition);
+            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos = new Vector3(pos.x, pos.y, 0);
             var hits = Physics2D.RaycastAll(pos, Vector2.up, .1f, LayerMask.GetMask("Bubble"));
             Debug.DrawLine(pos, pos + Vector3.up * 1f, Color.red, 1f);
@@ -200,5 +203,19 @@ public class BubbleShip : MonoBehaviour
     public void MakeSureSpeedDontChange()
     {
         _rigidbody.velocity = previousVelocity;
+    }
+
+    public void LoseMode()
+    {
+        ResetShip();
+        var tran = shipCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        tran.m_TrackedObjectOffset = Vector3.zero;
+        tran.m_DeadZoneHeight = 0;
+        tran.m_DeadZoneWidth = 0;
+        
+        crabBody.gameObject.SetActive(false);
+        crabBodyCry.gameObject.SetActive(true);
+        // Endless Rotate
+        crabBodyCry.transform.DORotate(new Vector3(0, 0, 360), 1f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
     }
 }

@@ -10,7 +10,7 @@ public class GeneratedBubble : ComposeBubbleBase
     public BubbleData Data => data;
     [SerializeField] private float size;
 
-    [SerializeField] private Animation explodeAnimation;
+    [SerializeField] private Animator explodeAnimator;
     private Sequence _destroySequence;
 
     protected override void Awake()
@@ -63,14 +63,14 @@ public class GeneratedBubble : ComposeBubbleBase
         var originalScale = SpriteRenderer.transform.localScale;
         Sequence sequence = DOTween.Sequence();
         sequence.Append(SpriteRenderer.transform.DOScale(originalScale * 0.75f, 0.1f));
-        sequence.Append(SpriteRenderer.transform.DOScale(originalScale * 1.2f, 0.1f));
+        sequence.Append(SpriteRenderer.transform.DOScale(originalScale * 1.3f, 0.1f));
         sequence.AppendCallback(() =>
         {
             DestroyImmediate(SpriteRenderer);
-            explodeAnimation.gameObject.SetActive(true);
-            explodeAnimation.Play();
+            explodeAnimator.gameObject.SetActive(true);
+            explodeAnimator.Play("Explode");
         });
-        sequence.AppendInterval(0.1f);
+        sequence.AppendInterval(0.15f);
         sequence.AppendCallback((() => DestroyImmediate(gameObject)));
         
         data.ExplodeEffect.Effect(bubbleShip, transform.position, size);

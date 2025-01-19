@@ -30,6 +30,8 @@ public class ComposeController : Singleton<ComposeController>
     [SerializeField] private Camera fixedBigCamera;
     private bool _cameraZoomed;
 
+    private Tween _resetGameTween;
+
     private void Start()
     {
         GenerateAllBubbles();
@@ -132,6 +134,16 @@ public class ComposeController : Singleton<ComposeController>
 
     public void ResetGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        if (_resetGameTween == null || _resetGameTween.IsComplete())
+        {
+            bubbleShip.LoseMode();
+            var duration = Vector3.Distance(bubbleShip.transform.position, shipOrigin.position) / 5;
+            _resetGameTween = bubbleShip.transform.DOMove(shipOrigin.position, duration).OnComplete((() =>
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
+                    .name);
+            }));
+        }
+
     }
 }
